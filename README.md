@@ -14,5 +14,12 @@ The focus is on identifying subtle linguistic patterns rather than explicit ment
 - Analysis is performed at an aggregate level
 - This project does NOT attempt diagnosis
 
-## Project Status
-Currently setting up data collection pipelines.
+## Current Stage:
+- Project setup
+- Twitter API integration (limited by API rate limits)
+- Query design for implicit mental health signals
+
+## Next Steps:
+- Stable data collection
+- Text preprocessing
+- Exploratory data analysis
