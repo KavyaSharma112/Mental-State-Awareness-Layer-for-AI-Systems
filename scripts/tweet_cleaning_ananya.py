@@ -1,6 +1,7 @@
 import pandas as pd
 import re
 
+#Ananya
 # Remove emojis
 def remove_emojis(text):
     emoji_pattern = re.compile(
