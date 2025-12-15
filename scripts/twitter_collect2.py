@@ -18,8 +18,10 @@ query = (
     '"feel overwhelmed" OR "too much going on" OR '
     '"feel numb" OR "lost interest in everything" OR '
     '"hard to care anymore" OR "barely coping" '
-    'lang:en -is:retweet -has:links'
+    'lang:en -is:retweet -is:reply -has:links'
 )
+
+
 
 try:
     response = client.search_recent_tweets(
@@ -62,7 +64,7 @@ if response.data and "users" in response.includes:
 
 
 df = pd.DataFrame(records)
-output_path = "data/raw/twitter_raw_data.csv"
+output_path = "data/raw/twitter_raw_data2.csv"
 df.to_csv(output_path, index=False)
 
 print(f"Collected {len(df)} tweets and data saved to {output_path}.")
