@@ -14,5 +14,18 @@ The focus is on identifying subtle linguistic patterns rather than explicit ment
 - Analysis is performed at an aggregate level
 - This project does NOT attempt diagnosis
 
-## Project Status
-Currently setting up data collection pipelines.
+## Current Stage
+- Project setup and repository structure finalized
+- Twitter API integration for data collection
+- Collection of real-world Twitter posts related to mental well-being
+- Implementation of a text preprocessing pipeline:
+  - Cleaning tweet text (URLs, mentions, emojis, punctuation, stopwords)
+  - Preserving and cleaning hashtags as a separate semantic feature
+- Creation of an intermediate cleaned dataset for reproducibility
+
+## Next Steps
+- Emotion labeling using a lexicon-based approach (NRC Emotion Lexicon)
+- Emoji-based emotion scoring to capture sarcasm and tone
+- Exploratory data analysis (EDA) on emotion distribution
+- Generation of a final `cleaned_dataset.csv` for machine learning models
+
