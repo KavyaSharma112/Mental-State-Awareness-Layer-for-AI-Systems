@@ -3,6 +3,7 @@ import re
 import nltk
 import emoji
 from nltk.corpus import stopwords
+from better_profanity import profanity
 
 nltk.download('stopwords')
 stop_words = set(stopwords.words('english'))
@@ -24,6 +25,22 @@ print(df.isna().any())
 df = df[['tweet_id', 'hashtags', 'text', 'platform']]
 print('\nColumns after selection: ')
 print(df.columns.tolist())
+
+# Detecting and removing Explicit Content
+profanity.load_censor_words()
+CUSTOM_SEXUAL_WORDS = [
+    "porn", "porno", "nude", "rape",
+    "blowjob", "handjob", "cum"
+]
+profanity.add_censor_words(CUSTOM_SEXUAL_WORDS)
+
+def remove_explicit_content(text):
+    return profanity.contains_profanity(text)
+
+df["expicit_content"]=df["text"].apply(remove_explicit_content)
+df = df[df["expicit_content"] == False].reset_index(drop=True)
+
+
 
 def clean_text(text):
     if pd.isna(text):
@@ -54,8 +71,10 @@ def clean_hashtags(tags):
     return tags
 
 
+
 df['text_clean'] = df['text'].apply(clean_text)
 df['hashtags_clean'] = df['hashtags'].apply(clean_hashtags)
+
 
 OUTPUT_PATH = "data/processed/twitter_cleaned.csv"
 df.to_csv(OUTPUT_PATH, index=False)
