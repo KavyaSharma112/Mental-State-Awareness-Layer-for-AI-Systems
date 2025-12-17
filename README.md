@@ -17,15 +17,27 @@ The focus is on identifying subtle linguistic patterns rather than explicit ment
 ## Current Stage
 - Project setup and repository structure finalized
 - Twitter API integration for data collection
-- Collection of real-world Twitter posts related to mental well-being
+- Collection of real-world Twitter posts related to mental well-being and emotional states
 - Implementation of a text preprocessing pipeline:
   - Cleaning tweet text (URLs, mentions, emojis, punctuation, stopwords)
   - Preserving and cleaning hashtags as a separate semantic feature
 - Creation of an intermediate cleaned dataset for reproducibility
+- Manual human annotation of tweets with emotion and distress labels:
+  - Defined a 5-class emotion taxonomy (Neutral, Joy, Sadness, Anxiety/Fear, Distress)
+  - Annotated each tweet with a single dominant emotion label
+  - Generated a supervised learning–ready labeled dataset
 
 ## Next Steps
-- Emotion labeling using a lexicon-based approach (NRC Emotion Lexicon)
-- Emoji-based emotion scoring to capture sarcasm and tone
-- Exploratory data analysis (EDA) on emotion distribution
-- Generation of a final `cleaned_dataset.csv` for machine learning models
+- Validate labeled dataset (label distribution, edge-case review)
+- Exploratory Data Analysis (EDA) on emotion class balance and text patterns
+- Train baseline emotion classification models (e.g., Logistic Regression, SVM)
+- Compare model predictions against human-labeled ground truth
+- Experiment with transformer-based models (BERT) for improved performance
+- Integrate emotion detection into a safety-aware NLP pipeline
+
+## Annotation Notes
+- Labels were assigned manually to reflect the dominant emotional state of each tweet
+- Ambiguous or contextual tweets were conservatively labeled as Neutral
+- Distress labels were reserved for explicit emotional numbness, exhaustion, or vulnerability
+
 
